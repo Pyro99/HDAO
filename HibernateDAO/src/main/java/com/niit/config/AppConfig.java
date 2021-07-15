@@ -28,7 +28,7 @@ public class AppConfig
 		dataSource.setUrl("jdbc:mysql://localhost:3306/db");
 
 		dataSource.setUsername("root");
-		dataSource.setPassword("root");
+		dataSource.setPassword("root@123");
 		return dataSource;
 	}
 	

@@ -3,18 +3,24 @@ package com.niit.HibernateDAO;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import org.springframework.test.context.junit4.SpringRunner;
 
-/**
- * Unit test for simple App.
- */
+import com.niit.config.AppConfig;
+import com.niit.dao.UserDAO;
+import com.niit.model.User;
+
+@RunWith(SpringRunner.class)
+@SpringJUnitConfig(classes=AppConfig.class)
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
+	UserDAO userDAO;
+    
     @Test
     public void shouldAnswerWithTrue()
     {
-        assertTrue( true );
+        assertTrue(userDAO.addUser(new User("Utkarsh","utkarsh123@gmail.com","pass@123")));
     }
 }
