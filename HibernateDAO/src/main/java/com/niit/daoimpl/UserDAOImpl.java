@@ -19,51 +19,43 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean addUser(User user) {
-		Transaction tx=null;
+		
 		try {
 		Session session=sessionFactory.getCurrentSession();
-		tx=session.beginTransaction();
 		session.save(user);
-		tx.commit();
+		
 		return true;
 		}
 		catch(Exception e)
 		{
-			tx.rollback();
+			
 			return false;
 		}
 	}
 
 	@Override
 	public boolean deleteUser(User user) {
-		Transaction tx=null;
+		
 		try {
 		Session session=sessionFactory.getCurrentSession();
-		tx=session.beginTransaction();
 		session.delete(user);
-		tx.commit();
 		return true;
 		}
 		catch(Exception e)
 		{
-			tx.rollback();
 			return false;
 		}
 	}
 
 	@Override
 	public boolean updateUser(User user) {
-		Transaction tx=null;
 		try {
 		Session session=sessionFactory.getCurrentSession();
-		tx=session.beginTransaction();
-		session.saveOrUpdate(user);
-		tx.commit();
+		session.saveOrUpdate(user);		
 		return true;
 		}
 		catch(Exception e)
 		{
-			tx.rollback();
 			return false;
 		}
 	}
