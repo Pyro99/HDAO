@@ -8,10 +8,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.dao.UserDAO;
 import com.niit.model.User;
-
+@Transactional
+@Repository("userDAO")
 public class UserDAOImpl implements UserDAO {
 
 	@Autowired
@@ -21,9 +24,7 @@ public class UserDAOImpl implements UserDAO {
 	public boolean addUser(User user) {
 		
 		try {
-		Session session=sessionFactory.getCurrentSession();
-		session.save(user);
-		
+		sessionFactory.getCurrentSession().save(user);
 		return true;
 		}
 		catch(Exception e)
@@ -37,8 +38,7 @@ public class UserDAOImpl implements UserDAO {
 	public boolean deleteUser(User user) {
 		
 		try {
-		Session session=sessionFactory.getCurrentSession();
-		session.delete(user);
+		sessionFactory.getCurrentSession().delete(user);
 		return true;
 		}
 		catch(Exception e)
@@ -50,8 +50,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public boolean updateUser(User user) {
 		try {
-		Session session=sessionFactory.getCurrentSession();
-		session.saveOrUpdate(user);		
+		sessionFactory.getCurrentSession().saveOrUpdate(user);		
 		return true;
 		}
 		catch(Exception e)
@@ -61,7 +60,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<User> displayUsers(User user) {
+	public List<User> displayUsers() {
 		return sessionFactory.getCurrentSession().createCriteria(User.class).list();
 	}
 
