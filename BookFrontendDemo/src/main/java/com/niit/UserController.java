@@ -30,7 +30,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/add")
-	public String add(@ModelAttribute("user") User u)
+	public String add(@ModelAttribute("user") User u) 
 	{
 		userDAO.addUser(u);
 		return "redirect:/login";
