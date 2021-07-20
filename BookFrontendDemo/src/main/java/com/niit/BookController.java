@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -39,4 +40,27 @@ public class BookController {
 		productDAO.addProduct(p);
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/bookid/{id}")
+	public String m4(@PathVariable("id") int bookid,ModelMap map)
+	{
+		map.addAttribute("book",productDAO.displayProductById(bookid));
+		return "displaybook";
+		
+	}
+	
+	@RequestMapping("/delete/{id}")
+	public String m5(@PathVariable("id") int bookid)
+	{
+		Product p=new Product();
+		p.setProdId(bookid);
+		productDAO.deleteProduct(p);
+		return "redirect:/book/";
+	}
+	
+	
+	
+	
+	
+	
 }

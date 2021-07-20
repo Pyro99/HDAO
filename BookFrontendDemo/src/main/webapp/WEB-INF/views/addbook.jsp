@@ -11,7 +11,7 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <div class="container">
-<sp:form action="${pageContext.request.contextPath}/book/add " modelAttribute="book" method="post">
+<sp:form action="${pageContext.request.contextPath}/book/add" modelAttribute="book" method="post">
 <div class="form-group">
 <label>Enter Product Name</label>
 <sp:input path="prodName" placeholder ="Enter Product Name" class="form-control"/>
@@ -22,7 +22,7 @@
 </div>
 	<div class="form-group">
 <label>Enter Product Description</label>
-<sp:input path="prodDesc"  placeholder="Enter Product Description" class="form-control"/>
+<sp:input path="prodDesc" placeholder="Enter Product Description" class="form-control"/>
 </div>
 <div class="form-group">
 <input type="submit" value="Add Book" class="btn btn-primary btn-block">
