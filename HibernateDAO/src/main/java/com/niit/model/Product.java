@@ -7,6 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="products")
@@ -17,10 +22,19 @@ public class Product {
 	private int prodId;
 	
 	@Column
+	@DecimalMin("100")
+	@DecimalMax("10000")
 	private float prodPrice;
+	
+
+	@NotEmpty(message="Prodcut name must not be empty")
+	@Size(min = 4,max = 16)
 	private String prodName;
+	
+	@NotEmpty(message="Link must be provided")
 	private String link;
 	
+	@NotEmpty(message="Prodcut description must not be empty")
 	@Column(length = 2000000000)
 	private String prodDesc;
 
