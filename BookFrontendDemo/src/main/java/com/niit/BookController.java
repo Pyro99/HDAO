@@ -38,7 +38,7 @@ public class BookController {
 	public String add1(@ModelAttribute("book") Product p)
 	{
 		productDAO.addProduct(p);
-		return "redirect:/";
+		return "redirect:/book/";
 	}
 	
 	@RequestMapping("/bookid/{id}")
@@ -58,8 +58,21 @@ public class BookController {
 		return "redirect:/book/";
 	}
 	
+	@RequestMapping("/edit/{id}")
+	public String m6(@PathVariable("id") int bookid,ModelMap map)
+	{
+		Product p=productDAO.displayProductById(bookid);
+		map.addAttribute("b",p);
+		return "addbook";
+	}
+	@RequestMapping("/update")
+	public String m7(@ModelAttribute("b") Product p)
+	{
+		productDAO.updateProduct(p); 
+		return "redirect:/book/";
+	}
 	
-	
+
 	
 	
 	

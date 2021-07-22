@@ -19,9 +19,9 @@
 		<p>Rs.${book.prodPrice}</p>
 		<p>${book.prodDesc}</p>
 		<a href="" class="btn btn-primary">Buy</a>
-		<a href="" class="btn btn-warning ">Read</a>
+		<a href="${book.link}" target ="new" class="btn btn-warning ">Read</a>
 		<a href="" class="btn btn-success">Add to Cart</a>
-		<a href="" class="btn btn-secondary">Edit</a>
+		<a href="${pageContext.request.contextPath}/book/edit/${book.prodId}" class="btn btn-secondary">Edit</a>
 		<a href="${pageContext.request.contextPath}/book/delete/${book.prodId}" class="btn btn-danger">Delete</a>
 	</div>
 </div>

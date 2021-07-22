@@ -12,13 +12,13 @@
 <jsp:include page="header.jsp"></jsp:include>
 
 <div class="row">
-	<c:forEach items="${books}" var="book">
-	<a href="${pageContext.request.contextPath}/book/bookid/${book.prodId}">
-	<img src="https://upload.wikimedia.org/wikipedia/en/a/a9/Harry_Potter_and_the_Deathly_Hallows.jpg" style="height:500"class="col-xl-1"/></a>
-	<div class="col-lg-4 col-xl-2 col-sm-6 col-xs-12 col-m-6">
-	<h2>${book.prodName}</h2>
-	<p>Rs.${book.prodPrice}</p>
-	</div>
+		<c:forEach items="${books}" var="book">
+		<div class="col-lg-3 col-xl-2 col-md-6 col-sm-12 text-center">
+		<a href="${pageContext.request.contextPath}/book/bookid/${book.prodId}">
+			<img src="https://static.toiimg.com/imagenext/toiblogs/photo/blogs/wp-content/uploads/2016/08/Harry-Potter-and-the-Cursed-Child.jpg" class="col-lg-10"/></a>
+		<h2>${book.prodName}</h2>
+		<p>Rs.${book.prodPrice}</p>
+		</div>
 	</c:forEach>
 </div>
 </body>
