@@ -43,6 +43,8 @@
     <artifactId>jstl</artifactId>
     <version>1.2</version>
 </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+
     
   </dependencies>
 
